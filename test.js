@@ -119,19 +119,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
 })
 
+//remove duplicates for "add to favorite list click"
 function removeDuplicates(arrWithDups, keyToRemoveBy) {
-     let newArr = [];
-     let lookupObject  = {};
+     let newArr = []
+     let lookupObject  = {}
 
      for(let i in arrWithDups) {
-        lookupObject[arrWithDups[i][keyToRemoveBy]] = arrWithDups[i];
+        lookupObject[arrWithDups[i][keyToRemoveBy]] = arrWithDups[i]
      }
 
      for(i in lookupObject) {
-         newArr.push(lookupObject[i]);
+         newArr.push(lookupObject[i])
      }
       // debugger
-     return newArr;
+     return newArr
  }
 
 function renderHtml(city, index){
@@ -147,9 +148,12 @@ function renderHtml(city, index){
 
 function select_box(stateList){
 
+	//populate select drpdown box with state names sorted albhabetically, and without duplicates
+
+	//remove duplicates
 	stateList = stateList.filter(function(v,i) { return stateList.indexOf(v) == i; }).sort()
 
-
+	//populate
 	let sel = document.getElementById('select')
 
 	for(let i = 0; i < stateList.length; i++) {
